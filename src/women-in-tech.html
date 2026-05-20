@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women in Tech Graphics — Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050510;
+      --pink: #f472b6;
+      --purple: #a259ff;
+      --white: #f0f0ff;
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.1);
+    }
+
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--white); margin: 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    header { padding: 6rem 0 3rem; text-align: center; }
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); margin: 0; background: linear-gradient(to right, #f472b6, #a259ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .section-title { font-family: 'Syne', sans-serif; font-size: 1.8rem; margin: 4rem 0 1.5rem; color: var(--pink); border-left: 4px solid var(--purple); padding-left: 1rem; }
+
+    /* Masonry/Grid Layouts */
+    .graphics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .graphic-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; transition: 0.3s; }
+    .graphic-card:hover { transform: translateY(-5px); border-color: var(--pink); }
+    .graphic-card img { width: 100%; height: auto; display: block; }
+    .label { padding: 1rem; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+    .back-link { position: fixed; top: 2rem; left: 2rem; color: var(--white); text-decoration: none; padding: 0.5rem 1rem; background: var(--glass); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid var(--glass-border); z-index: 100; transition: 0.3s; }
+    .back-link:hover { background: var(--pink); color: #000; }
+
+    @media (max-width: 768px) { .graphics-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">← Back</a>
+
+<div class="container">
+  <header>
+    <h1>Women in Tech</h1>
+    <p>Social Media Visual Identity & Information Design</p>
+  </header>
+
+  <h2 class="section-title">Background Concepts</h2>
+  <p>Three distinct visual directions created to maintain brand consistency while offering variety for different post types.</p>
+  <div class="graphics-grid">
+    <div class="graphic-card"><img src="bg-1.png" alt="Background 1"><div class="label">Variation A</div></div>
+    <div class="graphic-card"><img src="bg-2.png" alt="Background 2"><div class="label">Variation B</div></div>
+    <div class="graphic-card"><img src="bg-3.png" alt="Background 3"><div class="label">Variation C</div></div>
+  </div>
+
+  <h2 class="section-title">Educational Infographics</h2>
+  <p>6 custom designs translating complex tech data into digestible, shareable Instagram slides.</p>
+  <div class="graphics-grid">
+    <div class="graphic-card"><img src="info-1.png" alt="Infographic"><div class="label">Data Visualization</div></div>
+    <div class="graphic-card"><img src="info-2.png" alt="Infographic"><div class="label">Tech Stats</div></div>
+    <div class="graphic-card"><img src="info-3.png" alt="Infographic"><div class="label">Community Impact</div></div>
+    <div class="graphic-card"><img src="info-4.png" alt="Infographic"><div class="label">Workflow</div></div>
+    <div class="graphic-card"><img src="info-5.png" alt="Infographic"><div class="label">Resource Guide</div></div>
+    <div class="graphic-card"><img src="info-6.png" alt="Infographic"><div class="label">Future Trends</div></div>
+  </div>
+
+  <h2 class="section-title">Speaker Spotlights</h2>
+  <p>7 unique layouts highlighting industry leaders, designed to maximize engagement and professional aesthetics.</p>
+  <div class="graphics-grid">
+    <div class="graphic-card"><img src="speaker-1.png" alt="Speaker"><div class="label">Keynote Speaker</div></div>
+    <div class="graphic-card"><img src="speaker-2.png" alt="Speaker"><div class="label">Panelist</div></div>
+    <div class="graphic-card"><img src="speaker-3.png" alt="Speaker"><div class="label">Panelist</div></div>
+    <div class="graphic-card"><img src="speaker-4.png" alt="Speaker"><div class="label">Founder</div></div>
+    <div class="graphic-card"><img src="speaker-5.png" alt="Speaker"><div class="label">Tech Lead</div></div>
+    <div class="graphic-card"><img src="speaker-6.png" alt="Speaker"><div class="label">Engineer</div></div>
+    <div class="graphic-card"><img src="speaker-7.png" alt="Speaker"><div class="label">Moderator</div></div>
+  </div>
+
+</div>
+
+<footer style="text-align: center; padding: 5rem 0; opacity: 0.5; font-size: 0.8rem;">
+  © 2025 Rabiya Anvarova • Visual Design for Women in Tech
+</footer>
+
+</body>
+</html>

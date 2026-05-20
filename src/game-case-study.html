@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Influencers.kz Game Design — Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050510;
+      --neon-purple: #bc13fe;
+      --neon-blue: #00f2ff;
+      --neon-pink: #ff00bd;
+      --white: #f0f0ff;
+      --glass: rgba(255,255,255,0.03);
+      --glass-border: rgba(255,255,255,0.08);
+    }
+
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--white); margin: 0; line-height: 1.6; overflow-x: hidden; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    header {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(188,19,254,0.15) 0%, transparent 70%);
+    }
+
+    h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 10vw, 6rem); margin: 0; line-height: 1; text-transform: uppercase; color: var(--neon-blue); text-shadow: 0 0 20px rgba(0,242,255,0.5); }
+    .tagline { font-size: 1.2rem; color: var(--neon-purple); letter-spacing: 5px; font-weight: bold; margin-bottom: 1rem; }
+
+    .section { padding: 6rem 0; border-bottom: 1px solid var(--glass-border); }
+    h2 { font-family: 'Syne', sans-serif; font-size: 2.5rem; color: var(--neon-pink); margin-bottom: 2rem; }
+
+    /* Features Grid */
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .feat-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 20px; position: relative; overflow: hidden; }
+    .feat-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--neon-purple); }
+
+    /* Visual Showcase */
+    .showcase-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .showcase-item { border-radius: 15px; border: 1px solid var(--glass-border); overflow: hidden; background: #000; transition: 0.4s; }
+    .showcase-item:hover { border-color: var(--neon-blue); transform: scale(1.02); z-index: 10; box-shadow: 0 0 30px rgba(0,242,255,0.2); }
+    .showcase-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .full-w { grid-column: span 8; }
+    .side-w { grid-column: span 4; }
+    .third-w { grid-column: span 4; }
+
+    .back-link { position: fixed; top: 2rem; left: 2rem; color: var(--white); text-decoration: none; padding: 0.6rem 1.2rem; background: var(--glass); border-radius: 5px; backdrop-filter: blur(10px); border: 1px solid var(--glass-border); z-index: 100; font-family: 'Syne'; font-size: 0.8rem; letter-spacing: 2px; }
+    .back-link:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 15px var(--neon-blue); }
+
+    @media (max-width: 768px) { .showcase-grid { display: flex; flex-direction: column; } }
+
+  /* Phone Mockup Styling */
+  .phone-container {
+    width: 280px;
+    height: 580px;
+    background: #000;
+    border: 8px solid #1a1a1a;
+    border-radius: 40px;
+    position: relative;
+    box-shadow: 0 0 20px var(--neon-blue), 0 20px 40px rgba(0,0,0,0.8);
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  /* Notch */
+  .phone-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #1a1a1a;
+    border-radius: 0 0 15px 15px;
+    z-index: 10;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Allows scrolling within the phone */
+    scrollbar-width: none; /* Hides scrollbar for Firefox */
+  }
+
+  .phone-screen::-webkit-scrollbar { display: none; } /* Hides scrollbar for Chrome/Safari */
+
+  .phone-screen img {
+    width: 100%;
+    display: block;
+  }
+
+  .phone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .label-neon {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: 'Syne';
+    color: var(--neon-purple);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">_RETURN_TO_BASE</a>
+
+<header>
+  <div class="tagline">CYBERPUNK RPG EXPERIENCE</div>
+  <h1>INFLUENCERS</h1>
+  <p style="color: var(--white); max-width: 600px; opacity: 0.7;">An immersive gamified journey from zero to startup founder. Tap, earn, evolve, and conquer the startup world.</p>
+</header>
+
+<div class="container">
+
+  <section class="section">
+    <h2>Game Mechanics</h2>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <h3 style="color: var(--neon-blue);">The Unicorn Evolution</h3>
+        <p>8 stages of evolution. Players start with a basic character and evolve it into a glowing, powerful entity by earning coins and achievements.</p>
+      </div>
+      <div class="feat-card">
+        <h3 style="color: var(--neon-blue);">Startup Forge</h3>
+        <p>Integrated educational courses (free & premium). Learning is translated into game progress, making startup education addictive.</p>
+      </div>
+      <div class="feat-card">
+        <h3 style="color: var(--neon-blue);">Global Arena</h3>
+        <p>Worldwide leaderboards and daily tasks to drive user retention through competition and social proof.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Game Interface & UX</h2>
+    <p style="margin-bottom: 3rem; opacity: 0.8;">Explore the various modules of the Influencers.kz RPG environment. Each screen was crafted to maintain high immersion while delivering educational content.</p>
+
+    <div class="phone-grid">
+
+      <div>
+        <div class="phone-container" style="box-shadow: 0 0 20px var(--neon-blue);">
+          <div class="phone-screen">
+            <img src="Welcome Page.png" alt="Welcome">
+          </div>
+        </div>
+        <div class="label-neon">_Access_Point</div>
+      </div>
+
+      <div>
+        <div class="phone-container">
+          <div class="phone-screen">
+            <img src="Главный экран с единорогом.png" alt="Core Gameplay">
+          </div>
+        </div>
+        <div class="label-neon">_Core_Gameplay</div>
+      </div>
+
+      <div>
+        <div class="phone-container">
+          <div class="phone-screen">
+            <img src="Рефераллы.png" alt="Referrals">
+          </div>
+        </div>
+        <div class="label-neon">_Social_Network</div>
+      </div>
+
+      <div>
+        <div class="phone-container" style="box-shadow: 0 0 20px var(--neon-purple);">
+          <div class="phone-screen">
+            <img src="Награды.png" alt="Rewards">
+          </div>
+        </div>
+        <div class="label-neon" style="color: var(--neon-purple);">_Achievements</div>
+      </div>
+
+      <div>
+        <div class="phone-container">
+          <div class="phone-screen">
+            <img src="Профиль.png" alt="Profile">
+          </div>
+        </div>
+        <div class="label-neon">_Founder_Stats</div>
+      </div>
+
+      <div>
+        <div class="phone-container" style="box-shadow: 0 0 20px var(--neon-pink);">
+          <div class="phone-screen">
+            <img src="Апгрейды.png" alt="Upgrades">
+          </div>
+        </div>
+        <div class="label-neon" style="color: var(--neon-pink);">_Skill_Upgrades</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="border: none;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div>
+        <h2>Art Direction</h2>
+        <p>The style is defined as <strong>"Cyberpunk RPG"</strong>...</p>
+
+        <p style="margin-top: 2rem;">
+          <a href="https://www.figma.com/proto/EOf3ueIQjphSgjsn8x2iVf/sakura?node-id=2707-2691&t=t8fjUBoUGdUgqEug-1&scaling=min-zoom&content-scaling=fixed&page-id=2031%3A373&starting-point-node-id=2707%3A2691" target="_blank" style="color: var(--neon-blue); text-decoration: none; font-weight: bold; border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
+            Explore Full Interactive Prototype in Figma →
+          </a>
+        </p>
+      </div>
+      <div class="showcase-item">
+        <img src="Frame.png" alt="Figma Prototype Flow">
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer style="text-align: center; padding: 5rem 0; opacity: 0.3; font-size: 0.7rem; font-family: monospace;">
+  SYSTEM_STATUS: STABLE // PROJECT: INFLUENCERS.KZ // 2025
+</footer>
+
+</body>
+</html>

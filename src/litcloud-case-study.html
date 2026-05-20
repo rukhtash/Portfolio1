@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>litCloud Case Study — Rabiya Anvarova</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --bg: #050510;
+          --purple: #a259ff;
+          --blue: #4f8ef7;
+          --white: #f0f0ff;
+          --gray: #8888aa;
+          --glass: rgba(255,255,255,0.04);
+          --glass-border: rgba(255,255,255,0.08);
+        }
+
+        body {
+          font-family: 'DM Sans', sans-serif;
+          background: var(--bg);
+          color: var(--white);
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        header {
+          height: 60vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          background: radial-gradient(circle at center, rgba(162,89,255,0.15) 0%, transparent 70%);
+        }
+
+        h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 8vw, 5rem); margin: 0; }
+        .subtitle { color: var(--purple); text-transform: uppercase; letter-spacing: 0.2em; font-weight: bold; margin-bottom: 1rem; }
+
+        section { padding: 5rem 0; border-bottom: 1px solid var(--glass-border); }
+        h2 { font-family: 'Syne', sans-serif; font-size: 2rem; color: var(--blue); margin-bottom: 1.5rem; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .stat-item h3 { color: var(--purple); margin-bottom: 0.5rem; }
+
+        /* Placeholder for images */
+        .mockup-img {
+          width: 100%;
+          border-radius: 12px;
+          border: 1px solid var(--glass-border);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+          margin-top: 2rem;
+        }
+
+        .color-palette { display: flex; gap: 1rem; margin-top: 1rem; }
+        .color-swatch { width: 60px; height: 60px; border-radius: 12px; border: 1px solid var(--glass-border); }
+
+        .back-link {
+          position: fixed; top: 2rem; left: 2rem;
+          color: var(--white); text-decoration: none;
+          font-size: 0.9rem; padding: 0.5rem 1rem;
+          background: var(--glass); border-radius: 50px;
+          backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+          transition: 0.3s;
+          z-index: 100;
+        }
+        .back-link:hover { background: var(--purple); }
+
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">← Back to Portfolio</a>
+
+<header>
+    <div class="subtitle">UX/UI Case Study</div>
+    <h1>litCloud</h1>
+    <p style="color: var(--gray); max-width: 600px;">A cloud-based online library designed to make reading comfortable, intelligent, and accessible.</p>
+</header>
+
+<div class="container">
+
+    <section style="text-align: center; border: none; padding: 2rem 0;">
+        <div class="laptop-container">
+            <div class="laptop-screen">
+                <img src="MainPage.png" alt="litCloud Main Interface" class="scrolling-mockup">
+            </div>
+            <div class="laptop-base"></div>
+        </div>
+
+        <style>
+            /* Laptop Container Styling */
+            .laptop-container {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+                perspective: 1000px;
+            }
+
+            /* Screen Frame */
+            .laptop-screen {
+                position: relative;
+                background: #111;
+                border: 12px solid #222;
+                border-radius: 15px 15px 0 0;
+                aspect-ratio: 16 / 10;
+                overflow: hidden; /* This creates the window effect */
+                box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+                z-index: 2;
+            }
+
+            /* The Animated Image */
+            .scrolling-mockup {
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                animation: scroll-preview 12s ease-in-out infinite alternate;
+            }
+
+            /* Laptop Base (Keyboard area) */
+            .laptop-base {
+                height: 12px;
+                width: 105%;
+                background: #333;
+                margin-left: -2.5%;
+                border-radius: 0 0 10px 10px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Scrolling Animation Logic */
+            @keyframes scroll-preview {
+                0% {
+                    transform: translateY(0%);
+                }
+                100% {
+                    /* Adjust -70% depending on how long your image is.
+                       If the image is very long, increase this number. */
+                    transform: translateY(-75%);
+                }
+            }
+
+            /* Mobile optimization */
+            @media (max-width: 768px) {
+                .laptop-screen {
+                    border-width: 6px;
+                }
+            }
+        </style>
+    </section>
+
+    <section>
+        <h2>Project Overview</h2>
+        <div class="grid">
+            <div>
+                <p>litCloud was born as a solution to the cluttered and overwhelming interfaces of modern online libraries. The goal was to create a minimalist platform with built-in AI reading assistance.</p>
+                <div class="stat-item" style="margin-top: 1.5rem;">
+                    <h3>The Challenge</h3>
+                    <p>Users struggle with complex navigation, visual noise, and the lack of integrated tools for translation or term explanation while reading.</p>
+                </div>
+                <div class="stat-item">
+                    <h3>The Solution</h3>
+                    <p>Direct integration of AI tools within the reading environment, a simplified architecture, and a "cloud-inspired" aesthetic to reduce cognitive load.</p>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1 px;">
+            <span style="font-size: 0.7rem; color: var(--purple); text-transform: uppercase; letter-spacing: 1px;">Reading Screen</span>
+            <img src="Reading.png" alt="Mobile View" class="mockup-img">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Visual Identity & Interface</h2>
+        <div class="grid">
+            <div>
+                <h3>Color Palette</h3>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: #8BBEFF;" title="Primary Blue"></div>
+                    <div class="color-swatch" style="background: #DACFFF;" title="Secondary Purple"></div>
+                    <div class="color-swatch" style="background: #FFEEC8;" title="Accent Yellow"></div>
+                    <div class="color-swatch" style="background: #1F2937;" title="Neutral Dark"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem;">Soft blue and purple hues for maximum eye comfort.</p>
+
+                <h3 style="margin-top: 2rem;">Typography</h3>
+                <p><strong>Montserrat:</strong> Headings (Bold/Medium)<br><strong>Inter:</strong> Body text (Regular/Light).</p>
+
+                <h3 style="margin-top: 2rem;">User Onboarding</h3>
+                <p>The login and registration flow was designed to be friction-less, maintaining the "cloud" aesthetic with soft shadows and minimal input fields.</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div>
+                    <span style="font-size: 0.7rem; color: var(--purple); text-transform: uppercase; letter-spacing: 1px;">Sign In Screen</span>
+                    <img src="Login.png" alt="Login Page" class="mockup-img" style="margin-top: 10px;">
+                </div>
+                <div>
+                    <span style="font-size: 0.7rem; color: var(--purple); text-transform: uppercase; letter-spacing: 1px;">Registration Screen</span>
+                    <img src="Registration.png" alt="Registration Page" class="mockup-img" style="margin-top: 10px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="border-bottom: none;">
+        <h2>Final Results</h2>
+        <p>Testing confirmed that the main user flows are understandable and efficient. litCloud achieves its core goal: providing a calm, intelligent environment for deep reading.</p>
+
+        <img src="Profile.png" alt="Final Product" class="mockup-img">
+    </section>
+</div>
+
+<footer style="text-align: center; padding: 4rem 0; color: var(--gray2); font-size: 0.8rem;">
+    © 2025 Rabiya Anvarova • litCloud UX/UI Project
+</footer>
+
+</body>
+</html>
